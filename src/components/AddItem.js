@@ -1,22 +1,23 @@
 import React from 'react'
-class AddItem extends React.Component {
-    constructor(props){
-        super(props);
-        this.state ={
-            productName : "",
-            productReview:"",
 
-        }
+class AddItem extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      productName: "",
+      productReview: ""
     }
-  state = {}
+  }
+
   render() {
     return (
       <>
-        <form className='row mb-5 '
-        onSubmit={(e)=>{
+        <form className='row mb-5'
+          onSubmit={(e) => {
             e.preventDefault()
             this.props.addItem(this.state.productName, this.state.productReview)
-        }}>
+          }}
+        >
           <div className="mb-3 col-4">
             <label htmlFor="inputName" className="form-label">
               Name
@@ -25,28 +26,30 @@ class AddItem extends React.Component {
               type="text"
               className="form-control"
               id="inputName"
-              aria-describedby="name"
               name="productName"
-              onChange={(e)=>{
-                this.setState({productName: e.currentTarget.value});
+              onChange={(e) => {
+                this.setState({ productName: e.currentTarget.value });
               }}
-              value={this.setState.productName}
+              value={this.state.productName}
             />
           </div>
           <div className="mb-3 col-4">
             <label htmlFor="inputReview" className="form-label">
               Reviews
             </label>
-            <input type="text" className="form-control" id="inputReview" name="productReview" 
-            onChange={(e)=>{
-                this.setState({productReview: e.currentTarget.value});
+            <input
+              type="text"
+              className="form-control"
+              id="inputReview"
+              name="productReview"
+              onChange={(e) => {
+                this.setState({ productReview: e.currentTarget.value });
               }}
-              value={this.setState.productReview}
+              value={this.state.productReview}
             />
           </div>
 
-          <button type="submit" className="btn btn-primary col-4" 
-        >
+          <button type="submit" className="btn btn-primary col-4">
             Add
           </button>
         </form>
